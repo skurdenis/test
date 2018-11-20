@@ -1,5 +1,5 @@
 query {
-  repository(owner: $owner!, name: $name!) {
+  repository($owner: String!, $name: String!) {
     milestones(last: 100) {
       nodes {
         issues(last: 100) {

@@ -7,9 +7,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        int x=5;
-        int y=6;
-        System.out.println("x=" + x + "; y=" + y);
+       
         String string = "{\n" +
                 "  \"data\": {\n" +
                 "    \"repository\": {\n" +
@@ -235,13 +233,13 @@ public class Main {
                 "      }\n" +
                 "    }\n" +
                 "  }\n" +
-                "}"; // The String which Need To Be Converted
+                "}"; 
         JsonObject convertedObject = new Gson().fromJson(string, JsonObject.class);
-        System.out.println(convertedObject);
+   
         JsonObject trymilestones=
                 convertedObject.getAsJsonObject("data").getAsJsonObject("repository").getAsJsonObject("milestones");
         JsonArray nodes=trymilestones.getAsJsonArray("nodes");
-        System.out.println(nodes);
+      
         int count=0;
         int count1=0;
         int countmile=0;
@@ -251,10 +249,10 @@ public class Main {
             String text=a.toString();
             String replace = "\"closed\":true";
             count += (text.length()- (text.replaceAll(replace, "").length())) / replace.length();
-            System.out.println(count);
+           
             replace = "\"closed\":false";
             count1 += (text.length()- (text.replaceAll(replace, "").length())) / replace.length();
-            System.out.println(count1);
+           
             replace = "state\":\"CLOSED\"";
             countmile+=(text.length()- (text.replaceAll(replace, "").length())) / replace.length();
             
@@ -266,7 +264,7 @@ public class Main {
      if(sum==0) ans=1; else ans=count/sum;
      double ret=ans*(countmile+1)/(nodes.size());
      System.out.print(ret);
-
+     //return ret
 
 
 

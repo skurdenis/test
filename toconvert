@@ -1,0 +1,26 @@
+        //LinkedHashMap a; - исходные данные
+       // import java.util.LinkedHashMap;
+       // import java.io.IOException;
+        //import org.apache.commons.lang3.StringUtils;
+
+
+
+        //import com.fasterxml.jackson.core.type.TypeReference;
+        //import com.fasterxml.jackson.databind.ObjectMapper;
+        код
+        data =  a.get("data").toString();
+        
+        
+        int count=0;
+        int count1=0;
+        int countmile=0;
+        int countclosedmile=0;
+        count=StringUtils.countMatches(data, "closed=true");
+        count1=StringUtils.countMatches(data, "closed=false")+count;
+        countmile=StringUtils.countMatches(data, "title=");
+        countclosedmile=StringUtils.countMatches(data, "state=CLOSED");
+        double ans=0;
+        if(count1==0) ans=1; else ans=(double) count/count1;
+
+        double toreturnprogress=ans*(countclosedmile+1)/countmile;
+        double toreturncount=count1;

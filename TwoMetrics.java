@@ -33,9 +33,12 @@ public class TwoMetrics implements Converter {
         countclosedmile=countMatches(data, "state=CLOSED");
         float ans=0;
         if(count1==0) ans=1; else ans=(float) count/count1;
-
-        float toreturnprogress=ans*(countclosedmile+1)/countmile;
+        float toreturnprogress=0;
+        if (countmile>0 )toreturnprogress=ans*(countclosedmile+1)/countmile;
+        else  toreturnprogress=ans;
         float toreturncount=count1;
+      
+    
         
         Metric test1=new Metric("progress", toreturnprogress);
         Metric test2=new Metric("countclosed", toreturncount);

@@ -30,7 +30,7 @@ public class TwoMetrics implements Converter {
         count=countMatches(data, "closed=true");
         count1=countMatches(data, "closed=false")+count;
         countmile=countMatches(data, "dueOn");
-        countclosedmile=StringUtils.countMatches(data, "state=CLOSED");
+        countclosedmile=countMatches(data, "state=CLOSED");
         float ans=0;
         if(count1==0) ans=1; else ans=(float) count/count1;
 

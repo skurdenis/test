@@ -19,7 +19,7 @@ public class TwoMetrics implements Converter {
 
     @Override
     public List<Metric> convert(LinkedHashMap projectData) {
-        String data = projectData.get("data").toString();
+        String data = projectData.toString();
 
 
         int count = 0;
@@ -35,7 +35,7 @@ public class TwoMetrics implements Converter {
         else ans = (float) count / count1;
         float toreturnprogress = 0;
         if (countmile > 0) toreturnprogress = ans * (countclosedmile + 1) / countmile;
-        else toreturnprogress = ans;
+        else toreturnprogress = 0;
         float toreturncount = count1;
 
 
